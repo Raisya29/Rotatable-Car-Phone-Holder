@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotatable Car Phone Holder - Bestbrand Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .heading-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .bg-gradient-darkgreen {
+            background: linear-gradient(135deg, #1b4332 0%, #2d5a3d 100%);
+        }
+        .bg-gradient-light {
+            background: linear-gradient(135deg, #f5f5dc 0%, #ffffff 100%);
+        }
+        .text-gold {
+            color: #d4af37;
+        }
+        .border-gold {
+            border-color: #d4af37;
+        }
+        .bg-gold {
+            background-color: #d4af37;
+        }
+        .hover\:bg-darkgreen:hover {
+            background-color: #1b4332;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.show {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .social-proof {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            transform: translateX(120%);
+            transition: transform 0.5s ease;
+        }
+        .social-proof.show {
+            transform: translateX(0);
+        }
+        .product-gallery img {
+            transition: transform 0.3s ease;
+        }
+        .product-gallery img:hover {
+            transform: scale(1.05);
+        }
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.show {
+            transform: translateY(0);
+        }
+        .star-rating {
+            color: #ffd700;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        .countdown-box {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-gray-800">
+    <!-- Social Proof Popup -->
+    <div class="social-proof">
+        <div class="bg-white rounded-lg shadow-lg p-4 w-64 border-l-4 border-gold">
+            <div class="flex items-center mb-2">
+                <img src="https://cdn.cloudfastcdn.com/image/62f968bc42e7e40f0417dd50f5f3c7db4818e2a8-600.png" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+                <div>
+                    <p class="font-semibold text-sm"><span id="sp-name">Vina</span> dari <span id="sp-city">Jakarta</span></p>
+                    <p class="text-xs text-gray-500"><span id="sp-time">2 menit</span> yang lalu</p>
+                </div>
+            </div>
+            <p class="text-sm">Baru saja memesan <span class="font-semibold">Rotatable Car Phone Holder</span></p>
+        </div>
+    </div>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta bg-gradient-darkgreen text-white py-3 px-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <p class="font-bold heading-font text-lg">Rotatable Car Phone Holder</p>
+                <div class="flex items-center">
+                    <p class="text-gold font-bold text-xl mr-2">Rp 165.000</p>
+                    <p class="line-through text-gray-300 text-sm">Rp 180.000</p>
+                </div>
+            </div>
+            <a href="#order" class="bg-gold hover:bg-darkgreen text-white font-bold py-2 px-6 rounded-full transition duration-300">Pesan Sekarang</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-darkgreen text-white py-20 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://cdn.cloudfastcdn.com/image/c9f583557dbce5382a7d7ec3ed8427174415add1-600.png" alt="Background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <span class="bg-gold text-darkgreen text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">STOK TERBATAS</span>
+                    <h1 class="heading-font text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Rotatable Car Phone Holder</h1>
+                    <p class="text-lg mb-6">Solusi praktis untuk melihat peta atau menonton video saat berkendara tanpa ribet!</p>
+                    
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-sm">Gratis Ongkir Pesanan 2 pcs</span>
+                        </div>
+                        <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-sm">Pengiriman Cepat</span>
+                        </div>
+                        <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-sm">Garansi 1 Minggu</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-8">
+                        <div class="flex mr-4">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                        <span class="text-sm">500+ ulasan</span>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4 mb-8">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="font-bold">PROMO HARI INI:</span>
+                        </div>
+                        <div class="mt-2">
+                            <p class="text-sm">Hanya <span class="font-bold text-gold">13 pcs</span> tersisa!</p>
+                            <p class="text-sm">Diskon <span class="font-bold text-gold">Rp 15.000</span> berakhir dalam:</p>
+                            <div class="flex mt-2">
+                                <div class="countdown-box mr-2">
+                                    <span id="countdown-hours">00</span>h
+                                </div>
+                                <div class="countdown-box mr-2">
+                                    <span id="countdown-minutes">00</span>m
+                                </div>
+                                <div class="countdown-box">
+                                    <span id="countdown-seconds">00</span>s
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#order" class="bg-gold hover:bg-darkgreen text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block pulse-animation">Pesan Sekarang - Rp 165.000</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="https://cdn.cloudfastcdn.com/image/c9f583557dbce5382a7d7ec3ed8427174415add1-600.png" alt="Rotatable Car Phone Holder" class="w-full max-w-md rounded-lg shadow-2xl">
+                        <div class="absolute -bottom-6 -left-6 bg-white text-darkgreen rounded-full p-3 shadow-lg">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                                <span class="font-bold">124</span>
+                            </div>
+                            <p class="text-xs">Pengunjung melihat produk ini</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section class="py-16 bg-gradient-light">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center mb-12 text-darkgreen">Desain Elegan & Fungsional</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 product-gallery">
+                <div class="overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://cdn.cloudfastcdn.com/image/c9f583557dbce5382a7d7ec3ed8427174415add1-600.png" alt="Product Image 1" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://cdn.cloudfastcdn.com/image/9e9a9e7706e70ad39c60061b41eeec76140d1b23-700.png" alt="Product Image 2" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://cdn.cloudfastcdn.com/image/1a8f51be3f8496a1558339bf5d03bc659c496db2-600.png" alt="Product Image 3" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://cdn.cloudfastcdn.com/image/dd3eca2e8048dbf5b0100793c95d2316045f9e95-600.png" alt="Product Image 4" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://cdn.cloudfastcdn.com/image/94012a51ae27b2117797d08dda5290a74e5d089c-600.png" alt="Product Image 5" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="inline-block overflow-hidden rounded-lg shadow-lg">
+                    <video controls class="w-full max-w-2xl">
+                        <source src="https://down-ws-sg.vod.susercontent.com/api/v4/11110105/mms/id-11110105-6ke1j-lvu5wlyxa2eke4.16004111740005305.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center mb-12 text-darkgreen">Keunggulan Produk Kami</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 rounded-lg bg-gradient-light border border-gray-100">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="heading-font text-xl font-semibold mb-2">Desain Premium</h3>
+                    <p class="text-gray-600">Material berkualitas tinggi dengan finishing elegan yang tahan lama.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gradient-light border border-gray-100">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                    </div>
+                    <h3 class="heading-font text-xl font-semibold mb-2">Genggaman Kuat</h3>
+                    <p class="text-gray-600">Mampu menahan berbagai ukuran smartphone dengan cengkeraman yang kuat.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gradient-light border border-gray-100">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="heading-font text-xl font-semibold mb-2">Rotasi 360°</h3>
+                    <p class="text-gray-600">Dapat diputar ke segala arah untuk posisi nyaman saat berkendara.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gradient-light border border-gray-100">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="heading-font text-xl font-semibold mb-2">Garansi 1 Tahun</h3>
+                    <p class="text-gray-600">Kami jamin kualitas produk dengan garansi resmi 1 tahun.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gradient-darkgreen text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center mb-12">Testimoni Pelanggan</h2>
+            
+            <div class="relative">
+                <div class="testimonial-carousel overflow-hidden">
+                    <div class="flex transition-transform duration-300 ease-in-out" id="testimonial-track">
+                        <!-- Testimonial 1 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 px-4 flex-shrink-0">
+                            <div class="testimonial-card bg-white bg-opacity-10 rounded-lg p-6 h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://i.pinimg.com/736x/98/cb/74/98cb74b10988af7038d49657a44005b0.jpg" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+                                    <div>
+                                        <p class="font-semibold">hanesaputra18</p>
+                                        <div class="star-rating">
+                                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-4">"Mantap, harga murah kualitas bagus banget, per nya lentur, kuat juga"</p>
+                                <div class="cursor-pointer" onclick="openLightbox('https://down-id.img.susercontent.com/file/id-11134103-7r98s-lxkg50sfk76jca.webp')">
+                                    <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98s-lxkg50sfk76jca.webp" alt="Review" class="w-20 h-20 object-cover rounded">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 px-4 flex-shrink-0">
+                            <div class="testimonial-card bg-white bg-opacity-10 rounded-lg p-6 h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://i.pinimg.com/1200x/5b/4e/06/5b4e06105d5760aff955ea49791b4923.jpg" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+                                    <div>
+                                        <p class="font-semibold">ismunandar65</p>
+                                        <div class="star-rating">
+                                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-4">"Produk diterima baik sesuai permintaan dikemas dan dikirim baik terimakasih seller"</p>
+                                <div class="cursor-pointer" onclick="openLightbox('https://down-id.img.susercontent.com/file/id-11134103-7rbk0-m6i14hddagddde.webp')">
+                                    <img src="https://down-id.img.susercontent.com/file/id-11134103-7rbk0-m6i14hddagddde.webp" alt="Review" class="w-20 h-20 object-cover rounded">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 px-4 flex-shrink-0">
+                            <div class="testimonial-card bg-white bg-opacity-10 rounded-lg p-6 h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://i.pinimg.com/736x/bc/c4/0f/bcc40f828554ae673383967a7bc106cd.jpg" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+                                    <div>
+                                        <p class="font-semibold">rustanto44</p>
+                                        <div class="star-rating">
+                                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-4">"Mantap barang datang sesuai pesanan terimakasih"</p>
+                                <div class="cursor-pointer" onclick="openLightbox('https://down-id.img.susercontent.com/file/id-11134103-7rbk9-m6ph3vpehkfbf0.webp')">
+                                    <img src="https://down-id.img.susercontent.com/file/id-11134103-7rbk9-m6ph3vpehkfbf0.webp" alt="Review" class="w-20 h-20 object-cover rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 bg-white bg-opacity-30 rounded-full p-2 focus:outline-none" onclick="prevTestimonial()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 bg-white bg-opacity-30 rounded-full p-2 focus:outline-none" onclick="nextTestimonial()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="flex justify-center mt-6">
+                <div class="flex space-x-2">
+                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none testimonial-dot active" onclick="goToTestimonial(0)"></button>
+                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none testimonial-dot" onclick="goToTestimonial(1)"></button>
+                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none testimonial-dot" onclick="goToTestimonial(2)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center mb-12 text-darkgreen">Harga Spesial Hari Ini</h2>
+            
+            <div class="max-w-4xl mx-auto bg-gradient-light rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="mb-6">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">DISKON 8%</span>
+                        </div>
+                        <div class="flex items-end mb-4">
+                            <p class="text-4xl font-bold text-gold mr-2">Rp 165.000</p>
+                            <p class="text-lg text-gray-500 line-through">Rp 180.000</p>
+                        </div>
+                        <p class="text-gray-600 mb-6"></p>
+                        
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Stok hanya tersisa <span class="font-bold">13 pcs</span></span>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Gratis Ongkos Kirim untuk pesanan 2 pcs</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Pembayaran Bank transfer langsung dikirim hari ini</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                        <span class="font-bold">Perhatian:</span> Diskon akan berakhir dalam <span id="countdown-timer" class="font-bold">00:00:00</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 bg-gradient-darkgreen text-white p-8 md:p-12" id="order">
+                        <h3 class="heading-font text-2xl font-bold mb-6">Form Pemesanan</h3>
+                        
+                        <!-- OrderOnline Embed Code -->
+                        <div class="ooef">
+                            <form class="orderonline-embed-form" data-username="vera" data-product-slug="rotatable-car-phone-holder" data-product-id="689bff6e088c186746033fda" id="oo-embed-form-rotatable-car-phone-holder-6604" data-origin="orderonline">
+                                <div class="ooef-loader"><style>.ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}@keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}@-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}.ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}.ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}.ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}@-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}@keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}</style><div aria-live="polite" role="status"><div>Loading...</div></div></div>
+                            </form>
+                        </div>
+                        <script>
+                            if (typeof xLogError != 'function') {
+                                var xLogError = function (error) {
+                                    var req = new XMLHttpRequest();
+                                    var payload = JSON.stringify({
+                                        url: document.location.href,
+                                        line: error.line,
+                                        stack: error.stack
+                                    });
+                                    var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                                    req.open('POST', 'https://api.orderonline.id/log', true);
+                                    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                    req.send(params);
+                                };
+                            }
+                            try {
+                                if (typeof xEmbedScript != 'function') {
+                                    var xEmbedScript = function () {
+                                        !function(w, d, e, v, id, t, s) {
+                                            if (d.getElementById(id)) return;
+                                            t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                            s = d.getElementsByTagName(e)[0];
+                                            s.parentNode.insertBefore(t, s);
+                                        }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                                    };
+                                }
+                                if (typeof xEmbedInit != 'function') {
+                                    var xEmbedInit = function (w, n) {
+                                        if (w.ooe) return;
+                                        n = w.ooe = function() {
+                                            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                                        };
+                                        if (!w._ooe) w._ooe = n;
+                                        n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                                    };
+                                }
+                                xEmbedInit(window);
+                                ooe('setup', 'redirect', 'https://vera.orderonline.id');
+                                ooe('init', '5f1a7807a9bf807d6c63d963', '689bff6e088c186746033fda', '689bff6e088c186746033fdb', 'oo-embed-form-rotatable-car-phone-holder-6604', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":true});
+                                if (!window.jQuery) {
+                                    !function(w, d, e, v, id, t, s) {
+                                        if (d.getElementById(id)) return;
+                                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                        t.addEventListener('load', xEmbedScript);
+                                        s = d.getElementsByTagName(e)[0];
+                                        s.parentNode.insertBefore(t, s);
+                                    }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                                } else {
+                                    xEmbedScript();
+                                }
+                            } catch (e) {
+                                xLogError(e);
+                                throw e;
+                            }
+                        </script>
+                        <!-- End OrderOnline Embed Code -->
+
+    </section>
+
+
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+            <img id="lightbox-img" src="" alt="Lightbox Image" class="max-w-full max-h-screen">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-darkgreen text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="heading-font text-2xl font-bold mb-2">Bestbrand Shop</h3>
+                    <p class="text-sm">Toko terpercaya sejak 2021</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-sm mb-2">© 2023 Bestbrand Shop. All rights reserved.</p>
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="#" class="text-white hover:text-gold transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-gold transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-gold transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            document.getElementById('countdown-timer').textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Testimonial Carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-carousel .w-full');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        
+        function showTestimonial(index) {
+            const track = document.getElementById('testimonial-track');
+            const offset = -index * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('bg-white');
+                    dot.classList.remove('bg-opacity-50');
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-opacity-50');
+                }
+            });
+            
+            currentTestimonial = index;
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        function goToTestimonial(index) {
+            showTestimonial(index);
+        }
+        
+        // Auto-scroll testimonials
+        let testimonialInterval = setInterval(nextTestimonial, 5000);
+        
+        // Pause on hover
+        const carousel = document.querySelector('.testimonial-carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(testimonialInterval);
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            testimonialInterval = setInterval(nextTestimonial, 5000);
+        });
+        
+        // Lightbox
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox(e) {
+            if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // FAQ Toggle
+        function toggleFAQ(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+        
+        // Social Proof Popup
+        const names = ['Vina', 'Dina', 'Kartika', 'Lestari', 'Putri', 'Maya Sari', 'Rani', 'Permata', 'Lestari F'];
+        const cities = ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Tangerang', 'Depok', 'Semarang'];
+        
+        function showSocialProof() {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            const time = Math.floor(Math.random() * 15) + 1;
+            
+            document.getElementById('sp-name').textContent = name;
+            document.getElementById('sp-city').textContent = city;
+            document.getElementById('sp-time').textContent = time;
+            
+            const popup = document.querySelector('.social-proof');
+            popup.classList.add('show');
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Show first popup after 3 seconds
+        setTimeout(showSocialProof, 3000);
+        
+        // Then show every 8 seconds
+        setInterval(showSocialProof, 8000);
+        
+        // Pause on hover
+        const socialProof = document.querySelector('.social-proof');
+        let socialProofTimeout;
+        
+        socialProof.addEventListener('mouseenter', () => {
+            clearTimeout(socialProofTimeout);
+        });
+        
+        socialProof.addEventListener('mouseleave', () => {
+            socialProofTimeout = setTimeout(() => {
+                socialProof.classList.remove('show');
+            }, 2000);
+        });
+        
+        // Sticky CTA on scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.querySelector('.sticky-cta');
+            if (window.scrollY > 300) {
+                stickyCta.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
